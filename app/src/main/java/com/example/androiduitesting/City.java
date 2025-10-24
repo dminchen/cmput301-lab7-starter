@@ -1,19 +1,23 @@
 package com.example.androiduitesting;
 
+import androidx.annotation.NonNull;
+
 public class City {
-    private String city;
-    private String province;
+    private final String cityName;
 
-    City(String city, String province){
-        this.city = city;
-        this.province = province;
+    public City(String cityName) {
+        this.cityName = cityName == null ? "" : cityName.trim();
     }
 
-    String getCityName(){
-        return this.city;
+    public String getCityName() {
+        return cityName;
     }
 
-    String getProvinceName(){
-        return this.province;
+    @NonNull
+    @Override
+    public String toString() {
+        // ArrayAdapter will use this to display list rows
+        return cityName;
     }
 }
+
